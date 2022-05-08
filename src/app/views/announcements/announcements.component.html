@@ -1,0 +1,8 @@
+<div class="container">
+  <app-search-announcement></app-search-announcement>
+  <div class="cards" *ngIf="announcements$ | async as announcements">
+    <ng-container *ngFor="let announcement of announcements">
+      <app-card [announcement]="announcement"></app-card>
+    </ng-container>
+  </div>
+</div>

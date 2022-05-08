@@ -1,0 +1,75 @@
+:host {
+  @apply
+    mt-20
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.container {
+  @apply
+  flex
+  flex-col
+  p-10
+  max-w-lg
+  border
+  rounded
+}
+
+.title {
+  @apply
+  text-center
+}
+
+.input {
+  @apply
+  block
+  border
+  w-full
+  p-2
+  rounded
+  my-5
+  text-sm
+}
+
+.input.wrong {
+  @apply
+  border-red-700;
+}
+
+.input:focus {
+  @apply
+  outline-0;
+}
+
+
+.button {
+  @apply
+  block
+  w-full
+  bg-gray-600
+  rounded
+  p-2
+  mt-10
+  text-center
+  text-white
+  transition-colors;
+}
+
+.button:hover {
+  @apply
+  bg-gray-500
+}
+
+app-photo-upload {
+  @apply
+    inline-flex
+    border
+   m-auto
+}
+
+.photos {
+  @apply
+    text-center;
+}

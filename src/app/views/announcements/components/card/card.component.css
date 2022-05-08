@@ -1,0 +1,46 @@
+.container {
+  @apply
+    flex
+    flex-col
+    bg-white
+    p-2
+    shadow-sm;
+}
+
+.container {
+  @apply
+    cursor-pointer;
+}
+
+.image {
+  @apply
+    flex
+    items-center
+    justify-center
+    overflow-hidden
+    max-h-60
+    h-60
+}
+
+.title {
+  margin: 5px 0 0;
+  line-height: 20px;
+  font-size: 15px;
+}
+
+.address {
+  margin: 10px 0;
+  font-size: 12px;
+
+  @apply
+    text-gray-600
+}
+
+.price {
+  @apply
+    text-lg
+    font-bold;
+
+  color: rgb(0, 47, 52);
+}
+

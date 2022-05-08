@@ -1,0 +1,26 @@
+<div class="wrapper">
+  <h1 class="title">Publică un anunț</h1>
+
+  <div class="form__wrapper">
+    <form [formGroup]="uploadForm" (ngSubmit)="onSubmit()">
+      <div class="input">
+        <div class="input__title">
+          Adauga titlu
+        </div>
+        <input type="text" formControlName="title">
+      </div>
+
+      <div class="images">
+        <div>Imagini</div>
+        <app-photo-upload (uploaded)="saveImages($event)" [size]="6"></app-photo-upload>
+      </div>
+
+      <div class="input">
+        <div class="input__title">Descriere</div>
+        <textarea formControlName="description"></textarea>
+      </div>
+
+      <button class="button button--important">Adauga anuntul</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<a [routerLink]="['announcements', announcement.id]">
+  <div class="container">
+    <div class="image">
+      <img [src]="'http://localhost:8080/files/' + announcement.photos[0]">
+    </div>
+
+    <div class="title">
+      {{announcement.title}}
+    </div>
+
+    <div class="address">
+      {{announcement.address}}
+    </div>
+
+    <div class="price">
+      {{announcement.hourPrice}} lei
+    </div>
+  </div>
+</a>

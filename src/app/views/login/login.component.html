@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="title">Conectați-vă</h1>
+
+  <form class="form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <input type="text" placeholder="Email" formControlName="email" class="input">
+    <input type="password" placeholder="Parola" formControlName="password" class="input">
+
+    <button class="button">Conectați-vă</button>
+  </form>
+
+</div>

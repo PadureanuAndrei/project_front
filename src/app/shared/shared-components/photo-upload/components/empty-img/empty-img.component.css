@@ -1,0 +1,13 @@
+.wrapper {
+  background-color: rgb(242 244 245);
+
+  @apply
+    w-44
+    h-32
+    flex
+    items-center
+    justify-center
+    text-3xl
+    cursor-pointer
+    m-2
+}

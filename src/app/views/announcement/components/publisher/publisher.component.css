@@ -1,0 +1,42 @@
+.publisher {
+  @apply
+    flex
+    bg-white
+    p-3
+    shadow-md;
+}
+.info {
+  @apply
+    ml-2;
+}
+
+.image {
+  @apply
+    w-16
+    h-16
+    flex
+    items-center
+    justify-center
+    rounded-full
+    border-cyan-900
+    border
+    overflow-hidden
+}
+
+img {
+  @apply
+    flex
+    h-full
+    w-fit
+}
+
+.name {
+  @apply
+    text-lg
+    font-bold
+}
+
+.phone {
+  @apply
+    text-gray-500
+}

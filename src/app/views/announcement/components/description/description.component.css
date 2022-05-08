@@ -1,0 +1,32 @@
+.wrapper {
+  @apply
+    bg-white
+    p-4
+    shadow-md
+}
+
+.title {
+  @apply
+    text-4xl
+}
+
+.price {
+  @apply
+    my-5
+    font-bold
+    text-5xl
+}
+
+.description {
+  @apply
+    font-bold
+    text-2xl
+}
+
+.content {
+  @apply
+    mt-5
+    whitespace-pre-wrap;
+
+  font-family: 'Roboto', sans-serif;
+}

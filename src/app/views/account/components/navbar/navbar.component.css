@@ -1,0 +1,25 @@
+
+ul {
+  @apply
+    flex
+}
+
+a {
+  @apply
+    block
+    py-4
+    px-8
+    font-light
+    text-gray-600
+    border-b-gray-400
+    border-b
+}
+
+a.active-link {
+  @apply
+    font-bold
+    text-black
+    border-b-black
+    border-b-2
+
+}

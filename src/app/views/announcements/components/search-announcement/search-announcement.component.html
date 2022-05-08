@@ -1,0 +1,18 @@
+<div class="container">
+  <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+    <div class="input-container">
+      <i class="fa-solid fa-magnifying-glass icon"></i>
+      <input formControlName="criteria" type="text" placeholder="Criteriu">
+    </div>
+
+    <div class="input-container">
+      <i class="fa-solid fa-location-dot icon"></i>
+      <input formControlName="city" type="text" placeholder="Oras">
+    </div>
+
+    <button class="button">
+      <span>Cauta</span>
+      <i class="fa-solid fa-magnifying-glass icon"></i>
+    </button>
+  </form>
+</div>

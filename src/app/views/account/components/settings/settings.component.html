@@ -1,0 +1,17 @@
+<div class="container">
+  <h1 class="title">Actualizare Profil</h1>
+
+  <form class="form" [formGroup]="form" (ngSubmit)="submit()">
+    <input type="text" placeholder="Email" formControlName="email" class="input">
+    <input type="text" placeholder="Nume utilizator" formControlName="name" class="input">
+    <input type="text" placeholder="Telefon" formControlName="phoneNumber" class="input">
+    <input type="password" placeholder="Password" formControlName="password" class="input">
+
+    <div class="photos">
+      <app-photo-upload (uploaded)="changeImg($event)"></app-photo-upload>
+    </div>
+
+    <button class="button">Actualizare</button>
+  </form>
+
+</div>

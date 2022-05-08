@@ -1,0 +1,74 @@
+.carousel {
+  @apply
+    relative
+    bg-white
+    p-4
+    shadow-md
+}
+.image {
+  @apply
+    flex
+    items-center
+    justify-center
+    w-full
+    overflow-hidden;
+  max-height: 600px;
+  min-height: 600px;
+}
+
+.buttons {
+  @apply
+    absolute
+    bottom-5
+    right-0
+    left-0
+    flex
+    items-center
+    justify-center
+}
+
+.button {
+  @apply
+    rounded-full
+    w-4
+    h-4
+    border-4
+    mx-1
+}
+
+.button.selected {
+  @apply
+    border-cyan-900;
+}
+
+.control {
+  @apply
+    absolute
+    top-0
+    bottom-0
+    flex
+    justify-center
+    items-center
+    p-2
+}
+
+.control.left {
+  @apply
+    left-0;
+}
+
+.control.right {
+  @apply
+    right-0;
+}
+
+.control button {
+  @apply
+    p-3
+    text-2xl
+    transition-colors
+}
+.control button:hover {
+  @apply
+    bg-gray-100
+}

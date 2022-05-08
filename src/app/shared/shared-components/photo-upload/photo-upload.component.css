@@ -1,0 +1,6 @@
+:host {
+  @apply
+    flex
+    justify-start
+    flex-wrap;
+}

@@ -1,0 +1,9 @@
+<div class="announcement" *ngIf="announcement$ | async as announcement">
+  <div>
+    <app-carousel [images]="announcement.photos"></app-carousel>
+    <div class="description">
+      <app-description [announcement]="announcement"></app-description>
+    </div>
+  </div>
+  <app-publisher [userId]="announcement.publisher"></app-publisher>
+</div>

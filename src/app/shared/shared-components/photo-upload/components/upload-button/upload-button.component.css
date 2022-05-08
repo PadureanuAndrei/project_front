@@ -1,0 +1,18 @@
+.button {
+  @apply
+    inline-flex
+    items-center
+    justify-between
+    bg-gray-800
+    text-white
+    rounded
+    py-2
+    px-3
+    shadow-2xl
+    transition-colors
+}
+
+.button:hover {
+  @apply
+    bg-gray-600
+}

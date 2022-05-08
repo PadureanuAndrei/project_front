@@ -1,0 +1,9 @@
+<input type="file" hidden #file (change)="loadFile()">
+
+<div *ngFor="let image of images; index as i">
+  <app-image [image]="image" (onRemove)="removeImage(i)"></app-image>
+</div>
+
+<div *ngFor="let i of [].constructor(size - images.length)">
+  <app-empty-img (onUpload)="openUploadPopup()"></app-empty-img>
+</div>

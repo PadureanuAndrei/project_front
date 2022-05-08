@@ -1,0 +1,58 @@
+:host {
+  @apply
+    flex
+    flex-col
+    items-center
+    justify-center
+    min-h-screen
+    min-w-screen;
+}
+
+.container {
+  @apply
+    flex
+    flex-col
+    p-10
+    max-w-lg
+    border
+    rounded
+}
+
+.title {
+  @apply
+    text-center
+}
+
+.input {
+  @apply
+    block
+    border
+    w-full
+    p-2
+    rounded
+    my-5
+    text-sm
+}
+
+.input:focus {
+  @apply
+    outline-0;
+}
+
+
+.button {
+  @apply
+    block
+    w-full
+    bg-gray-600
+    rounded
+    text-center
+    p-2
+    text-white
+    transition-colors;
+}
+
+.button:hover {
+  @apply
+    bg-gray-500
+}

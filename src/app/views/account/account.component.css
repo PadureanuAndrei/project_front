@@ -1,0 +1,9 @@
+.wrapper {
+  @apply
+    flex
+    flex-col
+    m-auto
+    my-3;
+
+  max-width: 1200px;
+}

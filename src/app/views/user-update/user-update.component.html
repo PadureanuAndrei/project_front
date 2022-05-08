@@ -1,0 +1,16 @@
+<div class="container">
+  <h1 class="title">Actualizare</h1>
+
+  <form [formGroup]="registerForm" (ngSubmit)="submit()" class="form">
+    <input type="text" placeholder="Email" formControlName="email" class="input" [class.wrong]="isWrongField('email')">
+    <input type="text" placeholder="Nume utilizator" formControlName="name" class="input">
+    <input type="text" placeholder="Telefon" formControlName="phoneNumber" class="input">
+    <input type="password" placeholder="Parola" formControlName="password" class="input">
+
+    Imagine:
+    <app-photo-upload [size]="6"></app-photo-upload>
+
+    <button class="button">Actualizare</button>
+  </form>
+
+</div>

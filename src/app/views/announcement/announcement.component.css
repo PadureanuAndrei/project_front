@@ -1,0 +1,22 @@
+.announcement {
+  @apply
+    flex
+    justify-center
+    m-auto
+    mt-10;
+
+  max-width: 1200px;
+}
+
+app-carousel {
+  width: 100%;
+}
+
+app-publisher {
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.description {
+  margin: 20px 0;
+}

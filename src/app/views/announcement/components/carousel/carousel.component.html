@@ -1,0 +1,17 @@
+<div class="carousel">
+  <div class="image">
+    <img [src]="'http://localhost:8080/files/' + images[selected]" class="img">
+  </div>
+
+  <div class="buttons">
+    <button *ngFor="let button of images; let i = index" class="button" [class.selected]="i == selected" (click)="selectImage(i)"></button>
+  </div>
+
+  <div class="left control">
+    <button (click)="prev()"><i class="fa-solid fa-angle-left"></i></button>
+  </div>
+
+  <div class="right control">
+    <button (click)="next()"><i class="fa-solid fa-angle-right"></i></button>
+  </div>
+</div>
