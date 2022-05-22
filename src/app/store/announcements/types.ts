@@ -7,7 +7,7 @@ export interface Announcement {
   hourPrice: number;
 
   publisher: number;
-  photos: number[];
+  photos: string[];
 }
 
 

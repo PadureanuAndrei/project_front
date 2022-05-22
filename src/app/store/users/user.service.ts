@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {map, Observable} from "rxjs";
 import {UserModel, UserUpdate} from "./types";
-import {getUserById} from "../../api";
+import {getFile, getUserById} from "../../api";
 
 @Injectable()
 export class UserService {
@@ -10,10 +10,22 @@ export class UserService {
   constructor(private http: HttpClient) {}
 
   getById(id: number): Observable<UserModel> {
-    return this.http.get<UserModel>(getUserById(id));
+    return this.http.get<UserModel>(getUserById(id))
+      .pipe(
+        map(({ photo, ...rest }) => ({
+          ...(photo ? {photo: getFile(photo)} : {}),
+          ...rest
+        }))
+      )
   }
 
-  updateUser(id: number, user: UserUpdate): Observable<any> {
-    return this.http.put(getUserById(id), user);
+  updateUser(id: number, user: UserUpdate): Observable<UserModel> {
+    return this.http.put<UserModel>(getUserById(id), user)
+      .pipe(
+        map(({ photo, ...rest }) => ({
+          ...(photo ? {photo: getFile(photo)} : {}),
+          ...rest
+        }))
+      )
   }
 }

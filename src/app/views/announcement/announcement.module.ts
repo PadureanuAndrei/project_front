@@ -5,6 +5,7 @@ import {AnnouncementRoutingModule} from "./announcement-routing.module";
 import { CarouselComponent } from './components/carousel/carousel.component';
 import { PublisherComponent } from './components/publisher/publisher.component';
 import { DescriptionComponent } from './components/description/description.component';
+import { ReviewComponent } from './components/review/review.component';
 
 
 
@@ -13,7 +14,8 @@ import { DescriptionComponent } from './components/description/description.compo
     AnnouncementComponent,
     CarouselComponent,
     PublisherComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    ReviewComponent
   ],
   imports: [
     CommonModule,

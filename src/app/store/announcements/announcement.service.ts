@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Announcement, AnnouncementSearchCriteria, CreateAnnouncement} from "./types";
-import {Observable, of} from "rxjs";
-import {announcementById, announcements} from "../../api";
+import {map, Observable, of} from "rxjs";
+import {announcementById, announcements, getFile} from "../../api";
 
 @Injectable()
 export class AnnouncementService {
@@ -15,87 +15,31 @@ export class AnnouncementService {
 
   create(announcement: CreateAnnouncement): Observable<Announcement> {
     return this.http.post<Announcement>(announcements(), announcement)
+      .pipe(
+        map(({ photos, ...rest}) => ({
+          photos: photos.map(getFile),
+          ...rest
+        }))
+      );
   }
 
   getByCriteria(criteria: AnnouncementSearchCriteria): Observable<Announcement[]> {
-    return this.http.get<Announcement[]>(announcements());
-    // return of([
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    // ]);
+    return this.http.get<Announcement[]>(announcements())
+      .pipe(
+        map(announcements => announcements.map(({ photos, ...rest}) => ({
+          photos: photos.map(getFile),
+          ...rest
+        })))
+      );
   }
 
   getById(id: number): Observable<Announcement> {
-    return this.http.get<Announcement>(announcementById(id));
-    // return of(
-    //   {
-    //     id: 1,
-    //     title: 'Frigidere „Samsung”- generatie actuala, la 50% din pretul pietei.',
-    //     description: 'Descriere',
-    //     address: 'Stefn cel Mare 4',
-    //     hourPrice: 200,
-    //     publisher: 1,
-    //     photos: []
-    //
-    //   },
-    // )
+    return this.http.get<Announcement>(announcementById(id))
+      .pipe(
+        map(({ photos, ...rest}) => ({
+          photos: photos.map(getFile),
+          ...rest
+        }))
+      );
   }
 }

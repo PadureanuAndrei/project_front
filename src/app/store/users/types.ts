@@ -3,7 +3,7 @@ export interface UserModel {
   email: string;
   name: string;
   phoneNumber: string;
-  photo?: number;
+  photo?: string;
 }
 
 export interface UserUpdate {

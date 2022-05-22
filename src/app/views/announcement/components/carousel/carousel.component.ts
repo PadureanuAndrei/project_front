@@ -10,7 +10,7 @@ export class CarouselComponent {
   constructor() { }
 
   @Input()
-  images: number[] = [];
+  images: string[] = [];
 
   selected = 0
 

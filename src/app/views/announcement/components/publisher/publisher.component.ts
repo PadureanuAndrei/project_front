@@ -9,13 +9,7 @@ import {Observable} from "rxjs";
 })
 export class PublisherComponent implements OnInit {
 
-  user: UserModel = {
-    id: 1,
-    name: 'Andrei Padureanu',
-    email: 'andrei.padureanu67@gmail.com',
-    phoneNumber: '060752346',
-    photo: 2
-  };
+  user!: UserModel;
 
   user$!: Observable<UserModel>;
 

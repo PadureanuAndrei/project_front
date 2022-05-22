@@ -1,7 +1,7 @@
 <div class="publisher" *ngIf="user$ | async as user">
   <div class="image">
     <i *ngIf="!user.photo" class="fa-solid fa-user-large"></i>
-    <img *ngIf="user.photo" [src]="'http://localhost:8080/files/' + user.photo" alt="">
+    <img *ngIf="user.photo" [src]="user.photo" alt="">
   </div>
   <div class="info">
     <div class="name">{{user.name}}</div>

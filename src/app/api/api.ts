@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080";
+const BASE_URL = "https://agile-crag-54838.herokuapp.com";
 
 export const loginApi = () => `${BASE_URL}/auth/login`;
 export const registerApi = () => `${BASE_URL}/auth/register`;
@@ -9,3 +9,6 @@ export const getUserById = (id: number) => `${BASE_URL}/users/${id}`;
 
 export const announcements = () => `${BASE_URL}/announcements`;
 export const announcementById = (id: number) => `${BASE_URL}/announcements/${id}`;
+
+
+export const getFile = (id: number | string) => `${BASE_URL}/files/${id}`

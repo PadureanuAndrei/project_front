@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {concatMap, map, Observable, tap} from "rxjs";
+import { Component } from '@angular/core';
+import {concatMap, Observable, tap} from "rxjs";
 import {Announcement, AnnouncementService} from "../../store";
-import {ActivatedRoute, Router} from "@angular/router";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-announcement',
@@ -17,6 +17,7 @@ export class AnnouncementComponent {
 
     this.announcement$ = this.route.params.pipe(
       concatMap(({ id }) => announcementService.getById(id)),
+      tap(console.log)
     )
   }
 
