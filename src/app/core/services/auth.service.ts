@@ -9,7 +9,8 @@ import {BehaviorSubject, concatMap, Observable, tap} from "rxjs";
 })
 export class AuthService {
   private _currentUser$: BehaviorSubject<UserModel | null> = new BehaviorSubject<UserModel | null>(null);
-  private _authToken: string | null = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmRyZWlAcGFkdXJlYW51IiwiZXhwIjoxNjUzMjYyNjM0LCJpYXQiOjE2NTMyNDQ2MzR9.uDQY0Iv71DdKReeKkEisJIKdpge5vk8EU8VK9pLA7ihpyuDm9PdJphQNJA-rKFMmr7Tx90HfpUksQbUOxT95bg";
+  private _authToken: string | null = null;
+
   constructor(private http: HttpClient) {
   }
 

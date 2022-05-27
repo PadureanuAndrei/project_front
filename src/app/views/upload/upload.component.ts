@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {AnnouncementService, CreateAnnouncement} from "../../store";
+import {imgContent} from "../../utils";
 
 @Component({
   selector: 'app-upload',
@@ -25,20 +26,10 @@ export class UploadComponent {
   }
 
   onSubmit(): void {
-    const photos = this.images.map(UploadComponent.imgContent);
+    const photos = this.images.map(imgContent);
     const value = {...this.uploadForm.value, photos, address: 'Prin Romania', hourPrice: 200} as CreateAnnouncement;
     console.log(value);
     this.announcementService.create(value)
       .subscribe();
-  }
-
-  private static imgContent(buffer: ArrayBuffer): string {
-    const intBuffer = new Int8Array(buffer);
-
-    let str = ''
-    for (let x of intBuffer)
-      str += String.fromCharCode(x);
-
-    return str;
   }
 }
