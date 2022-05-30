@@ -3,6 +3,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {phoneNumberValidator} from "../../utils";
 import {AuthService, RegistrationModel} from "../../core";
 import {BehaviorSubject, catchError} from "rxjs";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -18,7 +19,8 @@ export class RegisterComponent {
   })
 
   constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private router: Router) { }
 
   submit() {
     if (this.registerForm.valid) {
@@ -26,7 +28,7 @@ export class RegisterComponent {
 
       this.authService.register(formData).pipe(catchError((x) => {
           return new BehaviorSubject({});
-        })).subscribe();
+        })).subscribe(() => this.router.navigate(['/login']));
     }
   }
 

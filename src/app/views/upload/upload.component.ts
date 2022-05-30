@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder} from "@angular/forms";
 import {AnnouncementService, CreateAnnouncement} from "../../store";
 import {imgContent} from "../../utils";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-upload',
@@ -12,13 +13,16 @@ export class UploadComponent {
 
   uploadForm = this.formBuilder.group({
     description: '',
-    title: ''
+    title: '',
+    address: '',
+    hourPrice: 0
   });
 
   images: ArrayBuffer[] = []
 
   constructor(private formBuilder: FormBuilder,
-              private announcementService: AnnouncementService) { }
+              private announcementService: AnnouncementService,
+              private router: Router) { }
 
 
   saveImages(images: ArrayBuffer[]) {
@@ -27,9 +31,9 @@ export class UploadComponent {
 
   onSubmit(): void {
     const photos = this.images.map(imgContent);
-    const value = {...this.uploadForm.value, photos, address: 'Prin Romania', hourPrice: 200} as CreateAnnouncement;
-    console.log(value);
+    const value = {...this.uploadForm.value, photos} as CreateAnnouncement;
+
     this.announcementService.create(value)
-      .subscribe();
+      .subscribe(({ id }) => this.router.navigate([`/announcements/${id}`]));
   }
 }

@@ -11,8 +11,8 @@ import {AnnouncementSearchCriteria} from "../../../../store";
 export class SearchAnnouncementComponent {
 
   searchForm = this.formBuilder.group({
-    criteria: null,
-    city: null,
+    criteria: '',
+    location: '',
   })
 
   constructor(private formBuilder: FormBuilder,
@@ -20,13 +20,6 @@ export class SearchAnnouncementComponent {
   }
 
   onSubmit(): void {
-    const value = this.searchForm.value as AnnouncementSearchCriteria;
-    if (!value.city)
-      delete value.city;
-
-    if (!value.criteria)
-      delete value.criteria;
-
     this.searchService.setSearchCriteria(this.searchForm.value);
   }
 

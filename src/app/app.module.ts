@@ -7,6 +7,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {SharedComponentsModule} from "./shared/shared-components/shared-components.module";
 import {AuthTokenInterceptor} from "./core";
 import {StoreModule} from "./store/store.module";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {StoreModule} from "./store/store.module";
     RootRoutingModule,
     SharedComponentsModule,
     StoreModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor, multi: true},

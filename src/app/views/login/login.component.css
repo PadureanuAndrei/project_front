@@ -56,3 +56,14 @@
   @apply
     bg-gray-500
 }
+
+.link {
+  @apply
+  inline
+  justify-center
+  mt-5
+  text-center
+
+  border
+
+}

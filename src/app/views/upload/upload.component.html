@@ -10,6 +10,20 @@
         <input type="text" formControlName="title">
       </div>
 
+      <div class="input">
+        <div class="input__title">
+          Adauga addresa
+        </div>
+        <input type="text" formControlName="address">
+      </div>
+
+      <div class="input">
+        <div class="input__title">
+          Adauga pret
+        </div>
+        <input type="text" formControlName="hourPrice">
+      </div>
+
       <div class="images">
         <div>Imagini</div>
         <app-photo-upload (uploaded)="saveImages($event)" [size]="6"></app-photo-upload>

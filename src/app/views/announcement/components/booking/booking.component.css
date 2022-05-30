@@ -1,0 +1,13 @@
+:host {
+  @apply
+    mt-3
+    flex
+    flex-col
+    bg-white
+    p-3
+    shadow-md;
+}
+
+.input {
+  @apply flex items-center justify-start;
+}

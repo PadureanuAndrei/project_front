@@ -8,6 +8,8 @@ import { MyBookingsComponent } from './components/my-bookings/my-bookings.compon
 import { NavbarComponent } from './components/navbar/navbar.component';
 import {SharedComponentsModule} from "../../shared/shared-components/shared-components.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatTableModule} from "@angular/material/table";
+import { AnnouncementBookingsComponent } from './components/announcement-bookings/announcement-bookings.component';
 
 
 
@@ -17,13 +19,15 @@ import {ReactiveFormsModule} from "@angular/forms";
     SettingsComponent,
     MyAnnouncementsComponent,
     MyBookingsComponent,
-    NavbarComponent
+    NavbarComponent,
+    AnnouncementBookingsComponent
   ],
-  imports: [
-    CommonModule,
-    AccountRoutingModule,
-    SharedComponentsModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        AccountRoutingModule,
+        SharedComponentsModule,
+        ReactiveFormsModule,
+        MatTableModule
+    ]
 })
 export class AccountModule { }

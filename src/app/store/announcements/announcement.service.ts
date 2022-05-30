@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Announcement, AnnouncementSearchCriteria, CreateAnnouncement} from "./types";
+import {HttpClient, HttpParams} from "@angular/common/http";
+import {Announcement, AnnouncementBookings, AnnouncementSearchCriteria, CreateAnnouncement} from "./types";
 import {map, Observable, of} from "rxjs";
-import {announcementById, announcements, getFile} from "../../api";
+import {addBooking, announcementById, announcements, getFile, userAnnouncements} from "../../api";
 
 @Injectable()
 export class AnnouncementService {
@@ -24,7 +24,7 @@ export class AnnouncementService {
   }
 
   getByCriteria(criteria: AnnouncementSearchCriteria): Observable<Announcement[]> {
-    return this.http.get<Announcement[]>(announcements())
+    return this.http.get<Announcement[]>(announcements() + `/?criteria=${criteria.criteria || ''}&location=${criteria.location || ''}`)
       .pipe(
         map(announcements => announcements.map(({ photos, ...rest}) => ({
           photos: photos.map(getFile),
@@ -41,5 +41,25 @@ export class AnnouncementService {
           ...rest
         }))
       );
+  }
+
+  getUserAnnouncements(): Observable<AnnouncementBookings[]> {
+    return this.http.get<AnnouncementBookings[]>(userAnnouncements())
+      .pipe(
+        map(as => as.map(a => ({
+          ...a,
+          bookings: a.bookings.map(b => ({
+            ...b,
+            start: new Date(b.start),
+            end: new Date(b.end)
+          }))
+        })))
+      );
+  }
+
+  addBooking(start: Date, end: Date, announcementId: number) {
+    return this.http.post<any>(addBooking(), {
+      start: start, end, announcement: announcementId
+    })
   }
 }

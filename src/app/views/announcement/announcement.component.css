@@ -12,7 +12,7 @@ app-carousel {
   width: 100%;
 }
 
-app-publisher {
+.right-sidebar {
   min-width: 300px;
   margin-left: 20px;
 }
@@ -20,3 +20,4 @@ app-publisher {
 .description {
   margin: 20px 0;
 }
+

@@ -22,5 +22,14 @@ export interface CreateAnnouncement {
 
 export interface AnnouncementSearchCriteria {
   criteria?: string;
-  city?: string;
+  location?: string;
+}
+
+export interface AnnouncementBookings {
+  id: number;
+  title: string;
+  address: string;
+  hourPrice: number;
+
+  bookings: { start: Date; end: Date; renter: number; }[]
 }

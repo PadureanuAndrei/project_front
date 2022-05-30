@@ -1,0 +1,23 @@
+:host {
+  display: flex;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+}
+
+.title {
+  width: 80%;
+  text-align: left;
+}
+
+td, th {
+  margin: 0 5px !important;
+  text-align: center;
+}
+
+

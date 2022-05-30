@@ -1,0 +1,49 @@
+
+<h3>Fa o rezervare:</h3>
+
+<div class="input">
+
+  <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+  <ngx-mat-datetime-picker #picker [showSeconds]="false"
+                           [touchUi]="false" [enableMeridian]="false"
+                           [disableMinute]="false" [hideTime]="false" [showSpinners]="false">
+  </ngx-mat-datetime-picker>
+
+  <span *ngIf="!startDateControl.value" class="time-input">
+    Inceput:
+  </span>
+
+  <span *ngIf="startDateControl.value" class="time-input">
+    {{ startDateControl.value | date:'short' }}
+  </span>
+
+
+</div>
+
+<div class="input">
+
+  <mat-datepicker-toggle matSuffix [for]="$any(picker2)"></mat-datepicker-toggle>
+  <ngx-mat-datetime-picker #picker2 [showSeconds]="false"
+                           [touchUi]="false" [enableMeridian]="false"
+                           [disableMinute]="false" [hideTime]="false" [showSpinners]="false">
+  </ngx-mat-datetime-picker>
+
+  <div *ngIf="!endDateControl.value" class="time-input">
+    Sfarsit:
+  </div>
+
+  <div *ngIf="endDateControl.value" class="time-input">
+    {{ endDateControl.value | date:'short' }}
+  </div>
+
+</div>
+
+<button (click)="submit()">
+  Submit
+</button>
+
+<input matInput [formControl]="startDateControl" [ngxMatDatetimePicker]="$any(picker)" placeholder="Incepand cu ..."
+       [min]="minDate" [max]="maxDate" class="invisible h-0 w-0">
+
+<input matInput [formControl]="endDateControl" [ngxMatDatetimePicker]="$any(picker2)" placeholder="Pana la ..."
+       [min]="minDate" [max]="maxDate" class="invisible h-0 w-0">
